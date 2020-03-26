@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "75b0a07c-c420-43c3-9685-6b281ea5f749",
+		"name": "Inter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post Usuáro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": null,\n\t\"nome\": \"Felipe\",\n\t\"email\": \"felipe.bit@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/desafio-inter/api/usuarios/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"desafio-inter",
+						"api",
+						"usuarios",
+						""
+					]
+				},
+				"description": "http://localhost:8080/desafio-inter/api/usuarios/"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Usuário",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "private-key",
+						"value": "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAJB0tq3NMvurCBcHCaU65BQl/8tnqAeHXccqshN1w/rwQEpkNplXQrzNEsdrW0xN4e2uasLSMUAJZ5VorAgPFkcUU3jMzEaAqwejyv9e+z8TNk6mxqG0o6mBXaUcYTULpM2avOeQhKP9bRZqUF65t2lD7GWHx7HnsQiQKKRjdoSnAgMBAAECgYBjnbjkPd9sodMgXiAOq3/hTRsKn97F4lmPIShQNyQBBnCvXFAyinRhUmIi1yvMgODOUTsaQmzoJhQiel436H+JUvVw/k70i8dM7XC/38iXHLnbD66f1x38zKb5B6BKkKkbnkBuJKD+YzY/pHQh4mLgDrAvU7bSNMr1kpR//uzRUQJBAOd1dCey2rZC4rhl6IRyVS5VoqD1IwVEWvINymTEOgMv8wQPtIy5tP1p5YGLjExeABsFCyBeG8lOPlKJBY7VEmsCQQCfxbfEppMkqlLpKjd3devYtHHrUl0+VUf/KfAuo4zgWpeAktLCFvqfU+TAjWkFD+URHJCop6tfvGZbKFuBhz21AkBbICjtAEOPgmHUi3qxunnC1kBC8oApMLJFnhxS89aLLrOUo8JHrU2Of8S17gT8g/2ypZet1J9H8CAlSoD/rO+lAkBgt/ckE1Z11qm0PnsvVPI90BY6RzTs/AFGhSPBh/5K/mxCSB9PoUt8UfPjYHdXuiSH9EvZ3Q5QOSOZQVgLlEwVAkEArNdGJZ5FXuHLap7ywmfPvbmKD6dHEt/92+ohAI63m0CQg8TAGGUU5io2gA+3IBrfGiS4sSyYoOTJO0OpaMIFGg==",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/desafio-inter/api/usuarios/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"desafio-inter",
+						"api",
+						"usuarios",
+						"1"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "chave",
+							"value": "MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBANhTv7LoRtTslDC3I95moi5GaPm7GZoIaEQgixHSkWMIGqi21ZuAlWwaihEGAGw7ErrAlES/IDiIOZtB2EyCfzA3rCDbL5immR1BfT/IcPqL9awjxAdNCMwABlYWZ/weTtycix/7sxlDasLvlDmTr6X9VwMfgAf2JniipHZvnr0pAgMBAAECgYBwnjjgJLgrRPZo3g7YS0oHGTSxPcw4OkQ9o0uC/cIeciuexYAysiAX5UEXV66EqcQ4YOVPXMijZZfH0eGPAyi+tgO4h0LJcn99BSDY0Bp+9p/FTlNxZ2h3xAE8tG3/mrHDrvXdQV0aXQnY3Wbbj85vLy1goG7vWnQzBPMQt7vj4QJBAPfAK1eLL03fmYphtAfQtxnUd4iQoS4xQTkJRD1j+UvV8shGyOUq3aus3OqKECr8Xb2sUBLNQdWNetKxvGnng7UCQQDfh7mVvtkbbhv4EqHhWI2heHCxSPsKfmiDa7Gv4H1kW4rYl6BAbaSULwFK5e2h1L1k7KAgpUT74SXXd0TInmQlAkEAiejl94BZ365lKLvEXElZcz5rH5Dqt+zhEp/O5aF+BzHcSJHmiHK5HDRIcSJTZ6o9gDSoCh9J01dDFH+tkwI1tQJBAItLgRMYAyNc0oEc21QaYugkrdVMrWQ0sdxz2B7Jvloz0ap3kp2TtePCBwQtlJAsinnCG2c8lmiAPZyv7mU2jyECQQDD2V0qBakZBeZvcfoW53d1rY2ZBoLlvIxBSOAYhA6m0XnvDJaF0CHxG6TjKQyLPyBucEoTE7M6rPtsu+TX4Iso",
+							"disabled": true
+						}
+					]
+				},
+				"description": "http://localhost:8080/desafio-inter/api/usuarios/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Put Usuário",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "private-key",
+						"value": "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAI59tH0KEXuWW29xU9ZU19YiiiXwtNB3HT3muTM15DgLtfY14nyw/YUTwTKaGio4rE8q5k+FpqBC4NO7OKoaLfEqJBbU1JuCGgE9gE6xBKuSzTpSdv1zE6ApwZau7apYXtXd3USxfILZD3xiaLHnSU0NbxGZ/+emBze9DYxzmExlAgMBAAECgYBAkLU381f4qCjGVpOmistCPGRczLUhwNd/NQy2J7VBsAzDg6cc2RYHNuxUAX/ZodRyCv5RCj52X9eAGVWTvkkSUIbxLcPOaZR3GBfeNO6ik38trOBqRVV27xmtp5PSkWcpmYb8KZovAAqXZ0CI9eFXLt0/e0xzw9NkK7it/IyAAQJBAMybTmwmWJmNMfx6Y/jwAQ+c941ULbAZtOFqow4EIwOK8YKvwcgrTkFnvR4Cz11kcYlFSPGXubcEb9l2KkNUSL0CQQCySDdnHtiWCt9r7bmBWW3N7ph1kPT0FPxYv4gIEmgdKFlQ0/Hw2UTrBVaPxx/c1vOnBYWwBzjT6ikACEPvwvDJAkBZEhsXtbHIVtE16knvKvwrQdf6rHSfPvGhV/zXszFS73+ntr+TVlbg3jpUAEEplPpgGcthcP2mEMZoUqqfWOe5AkAdCs6bqda2eoby2gMCI0NT7K5BWJ/Osyx4eJr8VaNIPK5wEFa1WW90qaX0PgfevdVrO+cPSd3kB50uOCp5AFShAkAbccWjZpfSpuRHQVCTEedBv1R+cGA/xvozs0CSkIJjOxqlMKJiQW5CWH+I1WDSdczsu+TbI5duzWVWe9aZGArg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1,\n\t\"nome\": \"Jose\",\n\t\"email\": \"carlos.oli@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/desafio-inter/api/usuarios/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"desafio-inter",
+						"api",
+						"usuarios",
+						"1"
+					]
+				},
+				"description": "http://localhost:8080/desafio-inter/api/usuarios/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Usuário",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "private-key",
+						"value": "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAI59tH0KEXuWW29xU9ZU19YiiiXwtNB3HT3muTM15DgLtfY14nyw/YUTwTKaGio4rE8q5k+FpqBC4NO7OKoaLfEqJBbU1JuCGgE9gE6xBKuSzTpSdv1zE6ApwZau7apYXtXd3USxfILZD3xiaLHnSU0NbxGZ/+emBze9DYxzmExlAgMBAAECgYBAkLU381f4qCjGVpOmistCPGRczLUhwNd/NQy2J7VBsAzDg6cc2RYHNuxUAX/ZodRyCv5RCj52X9eAGVWTvkkSUIbxLcPOaZR3GBfeNO6ik38trOBqRVV27xmtp5PSkWcpmYb8KZovAAqXZ0CI9eFXLt0/e0xzw9NkK7it/IyAAQJBAMybTmwmWJmNMfx6Y/jwAQ+c941ULbAZtOFqow4EIwOK8YKvwcgrTkFnvR4Cz11kcYlFSPGXubcEb9l2KkNUSL0CQQCySDdnHtiWCt9r7bmBWW3N7ph1kPT0FPxYv4gIEmgdKFlQ0/Hw2UTrBVaPxx/c1vOnBYWwBzjT6ikACEPvwvDJAkBZEhsXtbHIVtE16knvKvwrQdf6rHSfPvGhV/zXszFS73+ntr+TVlbg3jpUAEEplPpgGcthcP2mEMZoUqqfWOe5AkAdCs6bqda2eoby2gMCI0NT7K5BWJ/Osyx4eJr8VaNIPK5wEFa1WW90qaX0PgfevdVrO+cPSd3kB50uOCp5AFShAkAbccWjZpfSpuRHQVCTEedBv1R+cGA/xvozs0CSkIJjOxqlMKJiQW5CWH+I1WDSdczsu+TbI5duzWVWe9aZGArg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/desafio-inter/api/usuarios/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"desafio-inter",
+						"api",
+						"usuarios",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
