@@ -22,18 +22,43 @@
 		    <scope>provided</scope>
 		</dependency>
 		
-		<!-- https://mvnrepository.com/artifact/io.swagger/swagger-jaxrs -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.4.2</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.4.2</version>
+			<scope>test</scope>
+		</dependency>
+		
 		<dependency>
 		    <groupId>io.swagger</groupId>
 		    <artifactId>swagger-jaxrs</artifactId>
 		    <version>1.6.0</version>
 		</dependency>
-		
 	
 	</dependencies>
 	
+	
+	
 	<build>
 		<finalName>desafio-inter.war</finalName>
+		
+		<pluginManagement>
+	    <plugins>
+	        <plugin>
+	            <groupId>com.google.code.maven-replacer-plugin</groupId>
+	            <artifactId>replacer</artifactId>
+	            <version>1.5.3</version>
+	        </plugin>
+	    </plugins>
+	    </pluginManagement>
+		
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -79,4 +104,5 @@
 		</plugins>
 	</build>
 
+	<packaging>war</packaging>
 </project>

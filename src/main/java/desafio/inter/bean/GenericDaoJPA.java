@@ -11,7 +11,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import javax.ws.rs.NotFoundException;
 
 import desafio.inter.model.EntidadeBase;
 
@@ -49,12 +48,14 @@ public class GenericDaoJPA {
 	}
 
 
-	public <T extends EntidadeBase<?>> void delete(Class<T> clazz, Serializable id) {
+	public <T extends EntidadeBase<?>> Boolean delete(Class<T> clazz, Serializable id) {
 		T entity = find(clazz, id);
 		if (entity != null) {
 			entityManager.remove(entity);
+			return true;
 		} else {
-			throw new NotFoundException();
+			// throw new NotFoundException();
+			return false;
 		}
 	}
 

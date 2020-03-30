@@ -20,8 +20,14 @@ public class Usuario extends EntidadeBase<Integer> {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID_USUARIO")
 	private Integer id;
-	private byte[] nome;
-	private byte[] email;
+	
+	@JsonIgnore
+	@Column(length = 10000)
+	private String nome;
+	
+	@JsonIgnore
+	@Column(length = 10000)
+	private String email;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "usuario")
@@ -33,16 +39,16 @@ public class Usuario extends EntidadeBase<Integer> {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public byte[] getNome() {
+	public String getNome() {
 		return nome;
 	}
-	public void setNome(byte[] nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public byte[] getEmail() {
+	public String getEmail() {
 		return email;
 	}
-	public void setEmail(byte[] email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 	public List<Resultado> getResultados() {

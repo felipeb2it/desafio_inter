@@ -5,7 +5,7 @@ import javax.ejb.Stateless;
 @Stateless
 public class CalcularDigitoUnico {
 
-	public long digitoUnico(long num) {
+	public long digitoUnico(double num) {
 		long soma;
 		do {
 			soma = 0;
@@ -25,7 +25,7 @@ public class CalcularDigitoUnico {
 			concatAll.append(n);
 		}
 		
-		return digitoUnico(Long.valueOf(concatAll.toString()));
+		return digitoUnico(Double.valueOf(concatAll.toString()));
 	}
 
 }

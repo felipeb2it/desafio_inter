@@ -1,5 +1,7 @@
 package desafio.inter.endpoint;
 
+import java.nio.charset.StandardCharsets;
+
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -16,6 +18,7 @@ import javax.ws.rs.core.Response;
 import desafio.inter.bean.GenericDaoJPA;
 import desafio.inter.dto.ChavesDto;
 import desafio.inter.dto.UsuarioDto;
+import desafio.inter.service.ChaveService;
 import desafio.inter.service.UsuarioService;
 
 @Path("/usuarios")
@@ -26,6 +29,9 @@ public class UsuarioEndpoint {
 	
 	@Inject
 	UsuarioService usuarioService;
+	
+	@Inject
+	ChaveService chaveService;
 
 	@GET
 	@Path("/{id}")
@@ -42,8 +48,8 @@ public class UsuarioEndpoint {
 	@PUT
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response updateUsuario(@HeaderParam("private-key") String privateKey, @PathParam("id") Integer id, UsuarioDto user) {
-		UsuarioDto usu = usuarioService.updateUsuario(id, user, privateKey);
+	public Response updateUsuario(@HeaderParam("public-key") String publicKey, UsuarioDto user) {
+		UsuarioDto usu = usuarioService.updateUsuario(user, publicKey);
 		if(usu == null) {
 			return Response.serverError().build();
 		} else {
@@ -62,10 +68,19 @@ public class UsuarioEndpoint {
     
     @DELETE
     @Path("/{id}")
-    public Response deleteUsuario(@HeaderParam("private-key") String privateKey, @PathParam("id") int id) {
-    	UsuarioDto usu = usuarioService.deleteUsuario(id, privateKey);
-		if(usu == null) {
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteUsuario(@PathParam("id") Integer id) {
+    	UsuarioDto usu = null;
+    	Boolean apagou = null;
+    	if(id != null) {
+    		apagou = usuarioService.deleteUsuario(id);
+    	} else {
+    		return Response.status(404).build();
+    	}
+		if(apagou == null) {
 			return Response.serverError().build();
+		} else if(apagou == false) {
+			return Response.status(404).build();
 		} else {
 			return Response.ok().entity(usu).build();
 		}
@@ -74,9 +89,17 @@ public class UsuarioEndpoint {
 	@PUT
     @Path("/chave/usuario/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response definirChave(@HeaderParam("public-key") String publicKey, @PathParam("id") Integer idUsuario) {
-        // return Response.status(201).entity(usuario).build();
-		return null;
+    public Response definirChave(@HeaderParam("public-key") String publicKey, @PathParam("id") Integer id) {
+		if(id == null || publicKey == null || publicKey.isEmpty()) {
+			return Response.status(404).build();
+		} else {
+			boolean chaveSalva = chaveService.chaveUsuario(id, publicKey.getBytes(StandardCharsets.UTF_8));
+			if(chaveSalva) {
+				return Response.ok().build();
+			} else {
+				return Response.status(404).build();
+			}
+		}
     }
 
 }
